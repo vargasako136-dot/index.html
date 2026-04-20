@@ -1,169 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Diane 🐰❤️</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>For Diane 🐰❤️</title>
 
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ffd6e0, #fff0f5);
-    overflow: hidden;
-  }
+  <style>
+    :root{
+      --pink:#ff6b81;
+      --bg1:#ffd6e0;
+      --bg2:#fff5f8;
+      --text:#3a3a3a;
+      --muted:#6b7280;
+      --card:rgba(255,255,255,.9);
+      --shadow:0 20px 50px rgba(0,0,0,.15);
+      --radius:22px;
+    }
 
-  .card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-    text-align: center;
-    width: 320px;
-    animation: fadeIn 1s ease;
-    position: relative;
-  }
+    *{box-sizing:border-box}
+    html,body{height:100%}
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(20px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color:var(--text);
+      background: linear-gradient(135deg,var(--bg1),var(--bg2));
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
 
-  .bunny {
-    font-size: 52px;
-    animation: bounce 1.5s infinite;
-  }
+    .card{
+      width:min(92vw, 360px);
+      padding:28px 24px 26px;
+      border-radius:var(--radius);
+      background:var(--card);
+      backdrop-filter: blur(12px);
+      box-shadow:var(--shadow);
+      text-align:center;
+      position:relative;
+      animation:fadeIn .6s ease both;
+    }
 
-  @keyframes bounce {
-    0%,100% {transform: translateY(0);}
-    50% {transform: translateY(-10px);}
-  }
+    @keyframes fadeIn{
+      from{opacity:0; transform:translateY(14px)}
+      to{opacity:1; transform:translateY(0)}
+    }
 
-  h2 {
-    color: #444;
-    margin: 15px 0 10px;
-  }
+    .bunny{
+      width:84px;
+      margin:2px auto 8px;
+      display:block;
+      animation:bounce 1.4s ease-in-out infinite;
+    }
 
-  .subtext {
-    font-size: 13px;
-    color: #777;
-    margin-bottom: 15px;
-  }
+    @keyframes bounce{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
 
-  .buttons {
-    margin-top: 10px;
-  }
+    h1{
+      font-size:20px;
+      margin:6px 0 4px;
+      font-weight:600;
+    }
 
-  button {
-    border: none;
-    padding: 12px 25px;
-    font-size: 16px;
-    border-radius: 12px;
-    margin: 8px;
-    cursor: pointer;
-    transition: 0.25s;
-    position: relative;
-  }
+    .sub{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
 
-  #yes {
-    background: #ff6b81;
-    color: white;
-    box-shadow: 0 5px 15px rgba(255,107,129,0.4);
-  }
+    .actions{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      position:relative;
+      min-height:60px;
+    }
 
-  #yes:hover {
-    transform: scale(1.1);
-  }
+    button{
+      border:0;
+      border-radius:12px;
+      padding:12px 18px;
+      font-size:15px;
+      cursor:pointer;
+      transition:transform .15s ease, box-shadow .15s ease;
+      will-change:transform;
+    }
 
-  #no {
-    background: #ddd;
-  }
+    #yes{
+      background:var(--pink);
+      color:#fff;
+      box-shadow:0 10px 24px rgba(255,107,129,.4);
+      position:relative;
+      z-index:2;
+    }
 
-  .result {
-    font-size: 26px;
-    color: #ff4d6d;
-  }
+    #yes:hover{ transform:scale(1.08) }
 
-  .heart {
-    position: absolute;
-    font-size: 20px;
-    animation: floatUp 3s linear forwards;
-  }
+    #no{
+      background:#eee;
+      position:absolute;
+      left:50%;
+      transform:translateX(70px);
+      z-index:1;
+    }
 
-  @keyframes floatUp {
-    0% {transform: translateY(0); opacity: 1;}
-    100% {transform: translateY(-700px); opacity: 0;}
-  }
-</style>
+    .result{
+      font-size:24px;
+      color:var(--pink);
+      margin-top:8px;
+      animation:pop .4s ease both;
+    }
+
+    @keyframes pop{
+      from{opacity:0; transform:scale(.85)}
+      to{opacity:1; transform:scale(1)}
+    }
+
+    .heart{
+      position:absolute;
+      bottom:-10px;
+      font-size:18px;
+      animation:floatUp 3s linear forwards;
+      pointer-events:none;
+    }
+
+    @keyframes floatUp{
+      to{ transform:translateY(-110vh); opacity:0 }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="card" id="card">
-  <div class="bunny">🐰</div>
-  <h2>Diane, do you love me too? 🥺</h2>
-  <div class="subtext">be honest… no pressure 🙂</div>
+  <main class="card" id="card" role="dialog" aria-live="polite">
+    
+    <!-- SVG Bunny -->
+    <svg class="bunny" viewBox="0 0 200 200" aria-hidden="true">
+      <ellipse cx="70" cy="45" rx="14" ry="30" fill="#fff"/>
+      <ellipse cx="130" cy="45" rx="14" ry="30" fill="#fff"/>
+      <circle cx="100" cy="115" r="50" fill="#fff"/>
+      <circle cx="85" cy="105" r="5"/>
+      <circle cx="115" cy="105" r="5"/>
+      <ellipse cx="100" cy="125" rx="6" ry="4" fill="#ff6b81"/>
+    </svg>
 
-  <div class="buttons">
-    <button id="yes" onclick="yesClick()">YES</button>
-    <button id="no" onmouseover="moveNo()" onclick="noClick()">NO</button>
-  </div>
-</div>
+    <h1>Diane, do you like me? 🥺</h1>
+    <div class="sub">be honest, no pressure 🙂</div>
+
+    <div class="actions">
+      <button id="yes">YES ❤️</button>
+      <button id="no">NO</button>
+    </div>
+
+  </main>
 
 <script>
-let size = 16;
-let noCount = 0;
+(() => {
+  const card = document.getElementById('card');
+  const yesBtn = document.getElementById('yes');
+  const noBtn  = document.getElementById('no');
 
-function yesClick() {
-  document.getElementById("card").innerHTML = `
-    <div class="bunny">🐰💖</div>
-    <div class="result">I love you more, Diane 😳❤️</div>
-    <div class="subtext">pero seryoso… gusto talaga kita 🙂</div>
-  `;
-  startHearts();
-}
+  let pos = { x: 0, y: 0 };
+  let vel = { x: 0, y: 0 };
 
-function noClick() {
-  const yesBtn = document.getElementById("yes");
-  size += 10;
+  function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
 
-  yesBtn.style.fontSize = size + "px";
-  yesBtn.style.padding = (12 + size/2) + "px " + (25 + size) + "px";
+  function dodge(e){
+    const r = noBtn.getBoundingClientRect();
+    const cx = r.left + r.width/2;
+    const cy = r.top + r.height/2;
 
-  noCount++;
-  const q = document.querySelector("h2");
+    const dx = cx - e.clientX;
+    const dy = cy - e.clientY;
+    const dist = Math.hypot(dx,dy);
 
-  if (noCount === 2) q.innerText = "Sure ka, Diane? 😅";
-  if (noCount === 4) q.innerText = "Kahit konti lang? 🥺";
-  if (noCount === 6) q.innerText = "Sige na please 🐰👉👈";
-}
+    if(dist < 140){
+      const force = (140 - dist)/140;
+      vel.x += (dx/dist) * force * 6;
+      vel.y += (dy/dist) * force * 6;
+    }
+  }
 
-function moveNo() {
-  const btn = document.getElementById("no");
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 200 - 100;
+  function animate(){
+    pos.x += vel.x;
+    pos.y += vel.y;
 
-  btn.style.transform = `translate(${x}px, ${y}px)`;
-}
+    vel.x *= 0.9;
+    vel.y *= 0.9;
 
-function startHearts() {
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
+    const bounds = card.getBoundingClientRect();
+    const btn = noBtn.getBoundingClientRect();
 
-    heart.style.left = Math.random() * window.innerWidth + "px";
-    heart.style.top = "100%";
+    pos.x = clamp(pos.x, -bounds.width/2, bounds.width/2);
+    pos.y = clamp(pos.y, -bounds.height/2, bounds.height/2);
 
-    document.body.appendChild(heart);
+    noBtn.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
 
-    setTimeout(() => heart.remove(), 3000);
-  }, 250);
-}
+    requestAnimationFrame(animate);
+  }
+
+  function hearts(){
+    setInterval(()=>{
+      const h=document.createElement('div');
+      h.className='heart';
+      h.textContent='❤️';
+      h.style.left=Math.random()*window.innerWidth+'px';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),3000);
+    },250);
+  }
+
+  yesBtn.addEventListener('click',()=>{
+    card.innerHTML = `
+      <div class="result">I like you more, Diane 😳❤️</div>
+      <div class="sub">pero seryoso… I mean it 🙂</div>
+    `;
+    hearts();
+  });
+
+  window.addEventListener('mousemove', dodge);
+  animate();
+})();
 </script>
 
 </body>
